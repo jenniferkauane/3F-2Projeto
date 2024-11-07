@@ -1,4 +1,4 @@
-import { getCSS, tickfont } from "./comum.js";
+import { getCSS, tickfont} from "./comum.js";
 
 async function quantidadeDeUsuarios(){
     const url = 'https://raw.githubusercontent.com/guilhermeonrails/api/main/numero-usuarios.json'
@@ -13,23 +13,22 @@ async function quantidadeDeUsuarios(){
             y:quantidadeDeUsuarios,
             type: 'bar', 
             marker: {
-                color: getCSS('--cor-secundaria'),
+                color: getCSS('--cor-secundaria')
             }
         }
     ]
 
-    const layout ={
-        plot_bgcolor:getCSS(' --cor-de-fundo'),
-        paper_bgcolor:('--cor-de-fundo'),
+    const layout = {
+        plot_bgcolor: getCSS('--cor-de-fundo'),
+        paper_bgcolor: getCSS('--cor-de-fundo'),
         title:{
-            text:'redes sociais com mais usuarios no mundo',
+            text:'Redes sociais com mais usuários no mundo',
             x: 0,
             font:{
                 color: getCSS('--cor-primaria'),
-                family:getCSS('--font'),
-                size:30
+                family: getCSS('--fonte'),
+                size: 30
             }
-
         },
         xaxis:{
             tickfont: tickfont,
@@ -40,21 +39,21 @@ async function quantidadeDeUsuarios(){
                 }
             }
         },
-        yexis: {
+        yaxis:{
             tickfont: tickfont,
-            title: {
-                text: 'Milhões de usuários  ativos',
+            title:{
+                text: 'Milhões de úsuarios ativos',
                 font:{
-                    color: getCSS('--cor-secundaria')
+                    color:getCSS('--cor-secundaria')
                 }
             }
-
         }
     }
+
     const grafico = document.createElement('div');
     grafico.className = 'grafico';
     document.getElementById('graficos-container').appendChild(grafico);
-    Plotly.newPlot(grafico, infos,layout);
+    Plotly.newPlot(grafico, infos, layout);
 
 }
 
